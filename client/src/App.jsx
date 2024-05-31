@@ -32,6 +32,12 @@ function App() {
     }
   }
 
+  function returnLink() {
+    if (location.pathname !== "/") {
+      return <Link to="/prisoners" className="li-pris">Lista więżniów</Link>
+    }
+  }
+
   useEffect(() => {
     fetchPrisoners();
   }, []);
@@ -41,10 +47,7 @@ function App() {
       <nav>
         <ul>
           <li>
-            <Link to="/prisoners" className="li-pris">LISTA WIĘŹNIÓW</Link>
-          </li>
-          <li>
-            <Link to="/prisoners/new-prisoner" className="li-pris">DODAĆ WIĘŹNIA</Link>
+            { returnLink() }
           </li>
         </ul>
       </nav>
